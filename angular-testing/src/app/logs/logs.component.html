@@ -1,0 +1,20 @@
+<table class="min-w-full table-auto border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="py-2 px-4 border-b text-left text-gray-700">Date</th>
+            <th class="py-2 px-4 border-b text-left text-gray-700">Time In</th>
+            <th class="py-2 px-4 border-b text-left text-gray-700">Time Out</th>
+            <th class="py-2 px-4 border-b text-left text-gray-700">Date Added</th>
+            <th class="py-2 px-4 border-b text-left text-gray-700">Date Updated</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="isLoaded">
+        <tr class="hover:bg-gray-100" *ngFor="let log of logs">
+            <td class="py-2 px-4 border-b text-gray-700">{{log.date || 'N/A'}}</td>
+            <td class="py-2 px-4 border-b text-gray-700">{{log.time_in || 'N/A'}}</td>
+            <td class="py-2 px-4 border-b text-gray-700">{{log.time_out || 'N/A'}}</td>
+            <td class="py-2 px-4 border-b text-gray-700">{{(log.created_at | date: 'MMMM dd, yyyy hh:mm:ss a') || 'N/A'}}</td>
+            <td class="py-2 px-4 border-b text-gray-700">{{(log.updated_at | date: 'MMMM dd, yyyy hh:mm:ss a') || 'N/A'}}</td>
+        </tr>
+    </tbody>
+</table>

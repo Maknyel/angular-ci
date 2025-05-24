@@ -1,0 +1,56 @@
+<div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-gray-700">Update Your Profile</h2>
+    
+    <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+      <!-- Name Field -->
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          [(ngModel)]="profile.name" 
+          class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" 
+          required 
+        />
+      </div>
+  
+      <!-- Username Field -->
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          [(ngModel)]="profile.username" 
+          class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" 
+          required 
+        />
+      </div>
+  
+      <!-- File Input (Profile Picture) -->
+      <div class="mb-4">
+        <!-- <label for="file" class="block text-sm font-medium text-gray-600">Upload Profile Picture</label> -->
+        <!-- <input 
+          type="file" 
+          id="file" 
+          name="file" 
+          (change)="onFileChange($event)" 
+          class="w-full mt-2 text-gray-600 file:bg-blue-500 file:text-white file:px-4 file:py-2 file:rounded-md cursor-pointer" 
+          accept="image/*"
+        />
+        <p *ngIf="profile.file" class="mt-2 text-sm text-gray-500">File: {{ profile.file }}</p> -->
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="mb-4">
+        <button 
+          type="submit" 
+          class="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Update Profile
+        </button>
+      </div>
+    </form>
+</div>
+  

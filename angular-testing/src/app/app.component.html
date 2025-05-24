@@ -1,0 +1,25 @@
+
+<body class="bg-gray-100 font-sans">
+
+  <!-- Main container -->
+  <div class="flex h-[100vh] overflow-hidden">
+
+    <!-- Sidebar -->
+    <app-sidebar [currentPage]="currentPage" *ngIf="hasNav" class="w-64 bg-gray-800 text-white p-5"></app-sidebar>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex h-full flex-col">
+      <!-- Top Navigation Bar -->
+      <app-navbar *ngIf="isLoginAlready" [currPage]="currPage" [fullName]="fullName" class="p-2"></app-navbar>
+
+      <!-- Main Content Goes Here -->
+      <div [ngClass]="{
+        'p-6 m-6':isLoginAlready
+      }" class="flex-1 overflow-auto h-full">
+        <router-outlet />
+      </div>
+    </div>
+
+  </div>
+
+</body>

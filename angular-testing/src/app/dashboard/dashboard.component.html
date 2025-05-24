@@ -1,0 +1,50 @@
+<section class="h-full flex flex-col flex-1 items-center justify-center">
+    <div class="bg-gray-50 dark:bg-gray-900 py-8 px-6">
+        <div class="p-4 max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md">
+            <div class="text-center">
+                <!-- Display Current Date and Time -->
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Time In / Time Out</h2>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Log your working hours</p>
+                
+                <!-- <div class="mt-6">
+                    <div class="text-lg text-gray-900 dark:text-white">
+                        <span id="current-time" class="font-semibold">Loading...</span>
+                    </div>
+                </div> -->
+            </div>
+
+            <div *ngIf="isLoaded" class="mt-8 flex gap-2 items-center justify-between text-center">
+                <!-- Time In / Time Out Buttons -->
+                 
+                <div class="flex items-center justify-center flex-col">
+                    <label class="text-white">Time In</label>
+                    <span *ngIf="!logs" class="w-32 py-3 px-4 bg-red-600 text-white rounded-md shadow-md ">
+                        N/A
+                    </span>
+                    <span *ngIf="logs" class="w-32 py-3 px-4 bg-red-600 text-white rounded-md shadow-md ">
+                        {{ logs?.time_in || 'N/A' }}
+                    </span>
+                </div>
+                <div class="flex items-center justify-center flex-col">
+                    <label class="text-white">Time Out</label>
+                    <span *ngIf="!logs" class="w-32 py-3 px-4 bg-red-600 text-white rounded-md shadow-md ">
+                        N/A
+                    </span>
+                    <span *ngIf="logs" class="w-32 py-3 px-4 bg-red-600 text-white rounded-md shadow-md ">
+                        {{ logs?.time_out || 'N/A' }}
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Display user info or status -->
+            <div *ngIf="isLoaded" class="m-8 p-2 text-center">
+                <button *ngIf="!logs.id" (click)="time_in()" class="w-32 py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md shadow-md focus:outline-none focus:ring-4 focus:ring-blue-300 cursor-pointer">
+                    Time In
+                </button>
+                <button *ngIf="logs.id && !logs?.time_out" (click)="time_out()" class="w-32 py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md shadow-md focus:outline-none focus:ring-4 focus:ring-blue-300 cursor-pointer">
+                    Time Out
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
